@@ -15,34 +15,23 @@ class OpenSpace:
             self.table = table
 
         def __str__(self):
-                if self.seats < self.number_of_people:
-                        print("Not enought seats")
-                        op.too_much_people()
-                else:
-                        print("Enought seats")
+                print(f"Number of table {self.table}, number of seat {self.seats} and number of people {self.number_of_people}")
             
         def is_enought_seat(self):
-                
-                if self.number_of_people < self.seats:
-                        return True
-                else:
-                        op.add_table_seats()
-                        
-
-        def too_much_people(self):
                 if self.number_of_people > self.seats:
-                        print("Let's add a table")
+                        print("Let's add tables and seats")
                         op.add_table_seats()
                    
                 else:
-                        return False
+                        return True
         
         def add_table_seats(self):
-                self.table = self.table + 1
-                self.seats = self.seats + 4
+                while self.number_of_people > self.seats:
+                        self.table = self.table + 1
+                        self.seats = self.seats + 4
                 print(f"Number of table : {self.table}")
-                print(f"Number of table : {self.seats}")
-                op.too_much_people()
+                print(f"Number of seats : {self.seats}")
+                op.is_enought_seat()
 
                 
         
@@ -52,14 +41,15 @@ class OpenSpace:
 
 op = OpenSpace()
 
-def main():
+def run():
         op.__init__()
         op.__str__()
+        op.is_enought_seat()
         
         
         
 
-main()
+run()
 
 
 
