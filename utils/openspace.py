@@ -29,8 +29,8 @@ class OpenSpace:
                 while self.number_of_people > self.seats:
                         self.table = self.table + 1
                         self.seats = self.seats + 4
-                print(f"Number of table : {self.table}")
-                print(f"Number of seats : {self.seats}")
+                print(f"Number of table needed : {self.table}")
+                print(f"Number of seats needed: {self.seats}")
                 op.is_enought_seat()
 
                 
