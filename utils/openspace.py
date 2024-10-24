@@ -1,19 +1,49 @@
-import random
-class Openspace:
-    def __init__(self, tables):
-        self.tables =  tables
-        self.number_of_tables = len(tables)
+# Importing class Table from table.py file
 
-    def organize(self, tables, seats, names):
+from table import Table
+from table import Seat
+from file_utils import name_list
+import random
+import pandas as pd
+
+# Defining and initiating class Openspace
+
+class Openspace:
+
+    def __init__(self, number_of_tables: int = 6, number_of_seats: int = 4):
+
+        self.number_of_tables = number_of_tables
+
+        self.tables = []
+        for i in range(number_of_tables):
+            self.tables.append(Table())
+
+        self.seats = []
+        for i in range(number_of_seats):
+            self.seats.append(Seat())
+
+        self.dictionary = {}
+        for x in range(number_of_tables):
+            key_name = F"Table {x+1}"
+            self.dictionary[key_name] = []
+
+    def organize(self, names: list = name_list):
+
         temp_names = names
-        for x in tables:
-            for x in seats:
+        for ind, table in enumerate(self.tables):
+            key_name = F"Table {ind + 1}"
+            for i, seat in enumerate(self.seats):
                 random_name = random.choice(temp_names)
-                x.set_occupant(random_name)
+                table.assign_seat(random_name)
                 temp_names.remove(random_name)
+                self.dictionary[key_name].append(random_name)
 
     def display(self):
-        pass
+        print(pd.DataFrame(self.dictionary))
 
-    def store(self):
-        pass
+
+
+op1 = Openspace()
+print(op1.organize())
+print(op1.dictionary)
+op1.display()

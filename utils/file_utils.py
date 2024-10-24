@@ -4,5 +4,5 @@ import pandas as pd
 df = pd.read_excel('bouman_8_members.xlsx')
 print(df["Names"])
 
-list_names = (df["Names"]).tolist()
-print(list_names)
+name_list = (df["Names"]).tolist()
+print(name_list)
