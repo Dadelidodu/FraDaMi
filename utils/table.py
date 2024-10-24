@@ -24,9 +24,9 @@ class Table:
             if x.free:
                 return True
 
-
-    def assign_name(self, name):
-
+    def assign_seat(self, name):
+        for x in self.seats:
+            x.set_occupant(name)
 
     def left_capacity(self):
         capacity_left = self.capacity
