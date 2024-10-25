@@ -1,4 +1,5 @@
 # Importing class Table from table.py file
+from operator import index
 
 from table import Table
 from table import Seat
@@ -41,9 +42,15 @@ class Openspace:
     def display(self):
         print(pd.DataFrame(self.dictionary))
 
+    def store(self, filename):
+        df = pd.DataFrame(self.dictionary)
+        df.to_excel(filename, index=False)
+
+
+
 
 
 op1 = Openspace()
-print(op1.organize())
-print(op1.dictionary)
+op1.organize()
 op1.display()
+op1.store("Organized tables.xlsx")
