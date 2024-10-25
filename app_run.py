@@ -63,4 +63,4 @@ def main():
 main()
 
     # Run this command in Terminal for running the app :
-    # streamlit run C:\Users\HP\Desktop\FraDaMi\app_run.py
+    # streamlit run C:\Users\Miro Fronhoffs\Documents\GitHub\FraDaMi\app_run.py
