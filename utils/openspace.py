@@ -1,10 +1,9 @@
 
 # Importing class Table from table.py file
-from operator import index
 
-from table import Table
-from table import Seat
-from file_utils import name_list
+
+from utils.table import Table, Seat
+from utils.file_utils import name_list
 import random
 import pandas as pd
 
@@ -50,8 +49,3 @@ class Openspace:
 
 
 
-
-op1 = Openspace()
-op1.organize()
-op1.display()
-op1.store("Organized tables.xlsx")
