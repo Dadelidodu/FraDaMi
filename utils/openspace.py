@@ -50,7 +50,13 @@ class Openspace:
                 
 
     def display(self):
+
         print(pd.DataFrame(self.dictionary))
+
+        if self.dictionary:
+            return pd.DataFrame(self.dictionary)
+        else:
+            return pd.DataFrame()
 
     def store(self, filename):
         df = pd.DataFrame(self.dictionary)
