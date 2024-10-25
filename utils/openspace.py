@@ -31,13 +31,23 @@ class Openspace:
     def organize(self, names: list = name_list):
 
         temp_names = names
+
         for ind, table in enumerate(self.tables):
+            
             key_name = F"Table {ind + 1}"
+
             for i, seat in enumerate(self.seats):
-                random_name = random.choice(temp_names)
-                table.assign_seat(random_name)
-                temp_names.remove(random_name)
-                self.dictionary[key_name].append(random_name)
+                
+                if len(temp_names) > 0:
+                    random_name = random.choice(temp_names)
+                    table.assign_seat(random_name)
+                    temp_names.remove(random_name)
+                    self.dictionary[key_name].append(random_name)
+                else: 
+                    table.assign_seat('Free Spot')
+                    self.dictionary[key_name].append(f'Free Spot {i}')
+            
+                
 
     def display(self):
         print(pd.DataFrame(self.dictionary))
