@@ -4,6 +4,9 @@ from utils.openspace import Openspace
 import pandas as pd
 
 def main():
+    """
+    Function launching the code
+    """
     
     
     uploaded_path = input('Upload your xlsx file path: ')
@@ -18,7 +21,7 @@ def main():
     if uploaded_path:
         op.organize(file_path)
         op.display()
-        op.store('hello.xlsx')
+        op.store('Random_pick_output.xlsx')
     else:
         return 'Wrong input'
         
