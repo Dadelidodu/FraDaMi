@@ -2,7 +2,7 @@
 
 Hello! Welcome to the FraDaMi project which basically is a Random Picker assigning a seat at a table in an openspace ! Don't hesitate to play with it. 
 
-LINK TO THE APP ---->  https://efe9-78-29-192-45.ngrok-free.app/ 
+LINK TO THE APP ---->  https://randomseat.streamlit.app/
 
 ### 🌍 Installation of the APP
 
