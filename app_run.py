@@ -1,11 +1,17 @@
+
+# 
+
+  
 import streamlit as st
+import io
 import pandas as pd
 from utils.table import Table, Seat
 from utils.openspace import Openspace
 
 def main():
+
     # Set up the Streamlit interface
-    st.title("Openspace Table Organizer")
+    st.title("Bouman_8 Turning Tables !")
 
     # Table and seat settings
     set_tables = st.number_input('Set the number of tables in the openspace', min_value=1, step=1)
@@ -33,9 +39,22 @@ def main():
                 st.dataframe(arrangement_df)
 
             # Save organized arrangement to a file
-            save_path = 'Random_distribution_output.xlsx'
-            op.store(save_path)
-            st.success(f"Arrangement saved to {save_path}")
+            #save_path = 'Random_distribution_output.xlsx'
+            #op.store(save_path)
+            #st.success(f"Arrangement saved to {save_path}")
+
+    # Create a BytesIO object to save the DataFrame to a CSV file
+            output = io.StringIO()
+            arrangement_df.to_csv(output, index=False)
+            output.seek(0)
+
+                # Add a download button for the CSV
+            st.download_button(
+                    label="Download Arrangement as CSV",
+                    data=output.getvalue(),
+                    file_name='Random_distribution_output.csv',
+                    mime='text/csv'
+                )    
         else:
             st.error("The uploaded file must contain a 'Names' column.")
     else:
