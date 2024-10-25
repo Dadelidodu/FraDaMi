@@ -10,7 +10,8 @@ The App is using streamlit module to display main features as random pick, setti
 
 *  1) Clone the repo to your device
 *  2) Open the folder in code editor
-*  3) Run the *app_run.py* from the folder
+*  3) pip install 'streamlit' on terminal
+*  3b) Run the *app_run.py* from the folder
 *  4) Run this command in Terminal: streamlit run *your path to app_run file*.py
 *  5) You can now view your Streamlit app in your browser.
 
